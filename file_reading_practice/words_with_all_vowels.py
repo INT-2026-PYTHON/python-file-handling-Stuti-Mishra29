@@ -40,3 +40,28 @@ Explanation:
 =================================================
 
 """
+# vowels to look for
+vowels = ['a', 'e', 'i', 'o', 'u']
+
+count = 0
+
+file = open("sowpods.txt", "r")
+
+for line in file:
+    word = line.strip().lower()   # make case-insensitive
+
+    # check if ALL vowels are present in the word
+    has_all_vowels = True
+
+    for v in vowels:
+        if v not in word:
+            has_all_vowels = False
+            break
+
+    if has_all_vowels:
+        print(word)
+        count = count + 1
+
+file.close()
+
+print("Total words with all vowels:", count)

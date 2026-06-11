@@ -58,3 +58,17 @@ After sorting -> ['a', 'compare', 'i', 'to'].
 =================================================
 
 """
+try:
+    sowpods = set(open("sowpods.txt").read().split())
+
+    sonnet = set(open("sonnet_words.txt").read().split())
+
+   
+    result = sorted(sonnet.difference(sowpods))
+
+    print("Words in sonnet but not in sowpods:")
+    print(result)
+    print("Total:", len(result))
+
+except FileNotFoundError:
+    print("Error: One or both files were not found.")
